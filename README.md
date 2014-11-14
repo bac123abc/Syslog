@@ -4,10 +4,14 @@ Syslog
 Xin chào các bạn. Bài viết này chúng tôi xin giới thiệu về syslog.. Đầu tiên syslog là một ứng dung để ghi log của hệ thống, ta có thể hiểu đơn giản quá trình chúng ta ghi sổ nhật kí các hoạt động trong ngày vậy. Biết cách xem và sử dụng các bản tin log là một yêu cầu tối quan trọng đối với người quản trị hệ thống cần phải nắm được. 
 
 Mục lục:
+
 1. Giới thiệu
 2. Các câu lệnh để hỗ trợ xem log
 3. Chi tiết file cấu hình của log
 4. Rotating Log
+5. Log-server
+6. Nâng cao với Syslog
+7. Lời kết
 
 
 ##### 1. Giới thiệu
@@ -180,7 +184,7 @@ Lúc này tất các log từ info của tiến trình hệ thống sẽ đượ
 
 ##### 4. Rotating Log
 
-##### 5. Log server
+##### 5. Log-server
 
 Bài toán thực tế đặt ra khi áp dụng vào trong một hệ thống là phải cần một con Log-server đối với hê thống để lưu log của tất cả các client gửi về. Vì vậy trong syslog có hỗ trợ chức năng đó:
 Mặc định trong syslog sử dụng port 514 để gửi và nhận thông tin log
@@ -198,3 +202,32 @@ Trong file cấu hình syslog bạn làm như sau:
 <img class="image__pic js-image-pic" src="http://i.imgur.com/CmURwV0.png" alt="" id="screenshot-image">
 
 *note: @ IP máy chủ log* khi đó các log của mail cũng sẽ gửi đến ip của máy chủ log với port 514 và dung giao thức UDP. Các bạn nhớ máy chủ log mở port 514 với kiểu truyền vận UPD hay TCP thì trên client bản phải gửi đúng giao thức vận chuyển đó..
+
+##### 6. Nâng cao với syslog
+
+Để hiểu rõ chi tiết và nắm chắc được syslog bạn cần phải hiểu chi tiết file cấu hình và nắm được những chức năng của syslog. Qua tìm hiểu chúng tôi cũng nắm được nhưng kiến thức nâng cao hơn về phần syslog này như:
+- Chỉnh sửa bản tin log đầu ra để đáp ứng yêu cầu công việc
+- Ghi log lại đối với các dịch vụ như http, mysql, ntp,..
+- Có thể ghi log vào hăn một cơ sở dữ liệu để tiện cho quá trình xem log
+- Cơ chế mã hóa ssl đối với bạn tin log khi truyền trên mạng internet tránh trường hợp bị bắt gói tin
+-...
+
+##### 7. Lời kết
+
+Bài viết trên đây của chúng tôi giới thiệu về syslog và những thứ cần thiết nhất khi tìm hiểu về syslog.Nó cũng là kiến thức mà khi tìm hiểu chúng tôi nhận được. Nắm được syslog là điều thực sự cần thiết đối với một người quản trị hệ thống. Nó là công cụ đắc lực nhất cho việc quan trị và sửa chữa hệ thống.
+
+**Người thực hiện:**
++ Cao Ngọc Uy
+Thông tin liên hệ skype: uy.cao
++ Nguyễn Hoài Nam
+Thông tin liên hệ skype: namptit307
+Tài liệu tham khảo:
+
+[Link trang chủ của syslog](http://www.rsyslog.com/doc/master/index.html)
+
+[Link 1](https://www.digitalocean.com/community/tutorials/how-to-view-and-configure-linux-logs-on-ubuntu-and-centos)
+
+[Link 2](http://www.thegeekstuff.com/2011/08/linux-var-log-files/)
+
+[Link 3](http://www.golinuxhub.com/2014/01/syslog-tutorial.html)
+
