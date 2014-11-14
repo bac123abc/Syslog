@@ -165,6 +165,7 @@ Trong syslog nhưng rule như hình trên được chia là 2 trường:
 |info | Thông tin của hệ thống |
 |debug | Quá trình kiểm tra hệ thống |
 
+- Trường action:( như ô vuông thứ 2 trong hình ) là trường để chỉ ra nơi lưu log của tiến trình đó.Có 2 loại là lưu tại file trong localhost hoặc gửi đến IP của Máy chủ Log ( chi tiết phần máy chủ log )
 
 **Note:**
 Đối với các dòng lệnh như sau:
@@ -218,9 +219,9 @@ Bài viết trên đây của chúng tôi giới thiệu về syslog và những
 
 **Người thực hiện:**
 + Cao Ngọc Uy
-Thông tin liên hệ skype: uy.cao
+Skype: uy.cao
 + Nguyễn Hoài Nam
-Thông tin liên hệ skype: namptit307
+Skype: namptit307
 Tài liệu tham khảo:
 
 [Link trang chủ của syslog](http://www.rsyslog.com/doc/master/index.html)
