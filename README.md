@@ -221,9 +221,12 @@ Bài viết trên đây của chúng tôi giới thiệu về syslog và những
 
 **Người thực hiện:**
 + Cao Ngọc Uy
+
 Skype: uy.cao
 + Nguyễn Hoài Nam
+
 Skype: namptit307
+
 Tài liệu tham khảo:
 
 [Link trang chủ của syslog](http://www.rsyslog.com/doc/master/index.html)
