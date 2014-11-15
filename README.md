@@ -208,6 +208,8 @@ Trong file cấu hình syslog bạn làm như sau:
 
 Để hiểu rõ chi tiết và nắm chắc được syslog bạn cần phải hiểu chi tiết file cấu hình và nắm được những chức năng của syslog. Qua tìm hiểu chúng tôi cũng nắm được nhưng kiến thức nâng cao hơn về phần syslog này như:
 - Chỉnh sửa bản tin log đầu ra để đáp ứng yêu cầu công việc
+- Cấu hình trên máy chủ log sao nó nó ghi thông tin đối với từng máy client một các riêng biệt và khoa học phục nhằm phục vụ cho việc kiểm tra log sau này
+- Dùng chức năng rotating log tốt
 - Ghi log lại đối với các dịch vụ như http, mysql, ntp,..
 - Có thể ghi log vào hăn một cơ sở dữ liệu để tiện cho quá trình xem log
 - Cơ chế mã hóa ssl đối với bạn tin log khi truyền trên mạng internet tránh trường hợp bị bắt gói tin
