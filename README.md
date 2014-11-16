@@ -172,7 +172,8 @@ Trong syslog nhưng rule như hình trên được chia là 2 trường:
 ```
 mail.info         /var/log/mail
 ```
-Khi đó lúc này bản tin log sẽ mail lại với mức cảnh báo từ info trở lên. Cụ thể là mức notice,warn,... nếu bạn chỉ muốn nó log lại mail với mức là info bạn phải sử dụng như sau: `mail.=info    /var/log/mail`
+Khi đó lúc này bản tin log sẽ mail lại với mức cảnh báo từ info trở lên. Cụ thể là mức notice,warn,... nếu bạn chỉ muốn nó log lại mail với mức là info bạn phải sử dụng như sau: 
+`mail.=info    /var/log/mail`
 ```
 mail.* 
 ```
