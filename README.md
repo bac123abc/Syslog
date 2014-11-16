@@ -203,7 +203,9 @@ Trong file cấu hình syslog bạn làm như sau:
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/CmURwV0.png" alt="" id="screenshot-image">
 
-*note: @ IP máy chủ log* khi đó các log của mail cũng sẽ gửi đến ip của máy chủ log với port 514 và dung giao thức UDP. Các bạn nhớ máy chủ log mở port 514 với kiểu truyền vận UPD hay TCP thì trên client bản phải gửi đúng giao thức vận chuyển đó..
+*note: @ IP máy chủ log* khi đó các log của mail cũng sẽ gửi đến ip của máy chủ log với port 514 và dùng giao thức UDP. Các bạn nhớ máy chủ log mở port 514 với kiểu truyền vận UPD hay TCP thì trên client cũng phải truyền đúng với giao thức như trên server.
+*@IPserver:514* : Đối với giao thức UDP.
+*@@IPserver:514* : Đối với giao thức TCP
 
 ##### 6. Nâng cao với syslog
 
