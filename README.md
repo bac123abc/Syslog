@@ -209,7 +209,7 @@ Trong file cấu hình syslog bạn làm như sau:
 
 ##### 6. Nâng cao với syslog
 
-Để hiểu rõ chi tiết và nắm chắc được syslog bạn cần phải hiểu chi tiết file cấu hình và nắm được những chức năng của syslog. Qua tìm hiểu chúng tôi cũng nắm được nhưng kiến thức nâng cao hơn về phần syslog này như:
+Qua tìm hiểu chúng tôi nhận thức được kiến thức nâng cao hơn về phần syslog này như:
 - Chỉnh sửa bản tin log đầu ra để đáp ứng yêu cầu công việc
 - Cấu hình trên máy chủ log sao nó nó ghi thông tin đối với từng máy client một các riêng biệt và khoa học phục nhằm phục vụ cho việc kiểm tra log sau này
 - Dùng chức năng rotating log tốt
@@ -218,6 +218,7 @@ Trong file cấu hình syslog bạn làm như sau:
 - Cơ chế mã hóa ssl đối với bạn tin log khi truyền trên mạng internet tránh trường hợp bị bắt gói tin
 -...
 
+Nhưng trong phạm vi bài viết này, chúng tôi chỉ giới hạn ở mức độ sơ khai nhất, các vấn đề nêu trên chúng tôi sẽ sớm làm rõ và đưa ra trong loạt các bài viết sau này về syslog.
 ##### 7. Lời kết
 
 Bài viết trên đây của chúng tôi giới thiệu về syslog và những thứ cần thiết nhất khi tìm hiểu về syslog.Nó cũng là kiến thức mà khi tìm hiểu chúng tôi nhận được. Nắm được syslog là điều thực sự cần thiết đối với một người quản trị hệ thống. Nó là công cụ đắc lực nhất cho việc quan trị và sửa chữa hệ thống.
