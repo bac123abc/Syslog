@@ -186,6 +186,57 @@ Nếu bạn muốn log lại tiến trình của mail ngoại trừ mức info b
 Lúc này tất các log từ info của tiến trình hệ thống sẽ được lưu vào trong thư mục message nhưng đối với các log của mail và auth sẽ không lưu vào trong message. Đó là ý nghĩa của dòng auth.none;mail.none
 
 ##### 4. Rotating Log
+Phần lớn các distro sẽ cài đặt một cấu hình syslog mặc định cho bạn, bao gồm logging to messages và các log files 
+khác trong /var/log. Để ngăn cản những files này ngày càng trở nên cồng kềnh và khó kiểm soát, một hệ thống quay 
+vòng log file (a log file rotation scheme) nên được cài đặt. Hệ thống cron đưa ra các lệnh để thiết lập những 
+log files mới, những file cũ được đổi tên bằng cách thay một con số ở hậu tố. Với loại quay vòng này, /var/log/messages 
+của ngày hôm qua sẽ trở thành messages.1 của ngày hôm nay và một messages mới được tạo. 
+Sự luân phiên này được cấu hình cho một số lượng lớn các file, và các log files cũ nhất sẽ được
+xoá khi sự luân phiên bắt đầu chạy. Ví dụ trong /var/log có các messages sau: messages, messages.1, messages-20071111, messages-20071118, ... 
+
+Tiện ích thi hành rotation là logrotate. Lệnh này được cấu hình sử dụng cho một hoặc nhiều files - được xác định bởi các tham số đi cùng. File cấu hình mặc định là /etc/logrotate.conf. 
+```
+# see "man logrotate" for details
+# rotate log files weekly
+weekly
+
+# keep 4 weeks worth of backlogs
+rotate 4
+
+# create new (empty) log files after rotating old ones
+create
+
+# use date as a suffix of the rotated file
+dateext
+
+# uncomment this if you want your log files compressed
+#compress
+
+# RPM packages drop log rotation information into this directory
+include /etc/logrotate.d
+
+# no packages own wtmp and btmp -- we'll rotate them here
+/var/log/wtmp {
+    monthly
+    create 0664 root utmp
+    rotate 1
+}
+
+/var/log/btmp {
+    missingok
+    monthly
+    create 0600 root utmp
+    rotate 1
+}
+
+# system-specific logs may be also be configured here.
+```
+Trong ví dụ này, bạn sẽ thấy: 
+•	Hệ thống sẽ quay vòng log files hàng tuần
+•	Lưu lại những thông tin logs đáng giá trong 4 tuần
+•	Sử dụng định dạng Ngày tháng thêm vào để làm hậu tố của log files (20071111, 20071118, ...)
+•	Thông tin về sự quay vòng log của các gói RPM nằm trong /etc/logrotate.d
+•	rotation được thiết lập cho 2 files: /var/log/wtmp và /var/log/btmp
 
 ##### 5. Log-server
 
