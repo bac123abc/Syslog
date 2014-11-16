@@ -232,11 +232,11 @@ include /etc/logrotate.d
 # system-specific logs may be also be configured here.
 ```
 Trong ví dụ này, bạn sẽ thấy: 
-•	Hệ thống sẽ quay vòng log files hàng tuần
-•	Lưu lại những thông tin logs đáng giá trong 4 tuần
-•	Sử dụng định dạng Ngày tháng thêm vào để làm hậu tố của log files (20071111, 20071118, ...)
-•	Thông tin về sự quay vòng log của các gói RPM nằm trong /etc/logrotate.d
-•	rotation được thiết lập cho 2 files: /var/log/wtmp và /var/log/btmp
+- Hệ thống sẽ quay vòng log files hàng tuần
+- Lưu lại những thông tin logs đáng giá trong 4 tuần
+- Sử dụng định dạng Ngày tháng thêm vào để làm hậu tố của log files (20071111, 20071118, ...)
+- Thông tin về sự quay vòng log của các gói RPM nằm trong /etc/logrotate.d
+- rotation được thiết lập cho 2 files: /var/log/wtmp và /var/log/btmp
 
 ##### 5. Log-server
 
