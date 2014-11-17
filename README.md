@@ -1,5 +1,11 @@
 Syslog
 ==============
+Nhóm thực hiện:
+
+|Họ và tên | Nick skype | Email |
+|----------|------------|-------|
+| Cao Ngọc Uy | uy.cao | caongocuy@gmail.com |
+| Nguyễn Hoài Nam | namptit307 | namptit307@gmail.com |
 
 Xin chào các bạn. Bài viết này chúng tôi xin giới thiệu về syslog.. Đầu tiên syslog là một ứng dung để ghi log của hệ thống, ta có thể hiểu đơn giản quá trình chúng ta ghi sổ nhật kí các hoạt động trong ngày vậy. Biết cách xem và sử dụng các bản tin log là một yêu cầu tối quan trọng đối với người quản trị hệ thống cần phải nắm được. 
 
@@ -274,14 +280,6 @@ Nhưng trong phạm vi bài viết này, chúng tôi chỉ giới hạn ở mứ
 ##### 7. Lời kết
 
 Bài viết trên đây của chúng tôi giới thiệu về syslog và những thứ cần thiết nhất khi tìm hiểu về syslog.Nó cũng là kiến thức mà khi tìm hiểu chúng tôi nhận được. Nắm được syslog là điều thực sự cần thiết đối với một người quản trị hệ thống. Nó là công cụ đắc lực nhất cho việc quan trị và sửa chữa hệ thống.
-
-**Người thực hiện:**
-+ Cao Ngọc Uy
-
-Skype: uy.cao
-+ Nguyễn Hoài Nam
-
-Skype: namptit307
 
 Tài liệu tham khảo:
 
