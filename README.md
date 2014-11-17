@@ -11,14 +11,21 @@ Xin chào các bạn. Bài viết này chúng tôi xin giới thiệu về syslo
 
 Mục lục:
 
-1. Giới thiệu
-2. Các câu lệnh để hỗ trợ xem log
-3. Chi tiết file cấu hình của log
-4. Rotating Log
-5. Log-server
-6. Nâng cao với Syslog
-7. Lời kết
+[1. Giới thiệu](#)
+	
+[2. Các câu lệnh hỗ trợ xem syslog](#)
+				
+[3. Chi tiết file cấu hình của syslog](#)
+				
+[4. Rotating Log](#)
+				
+[5. Log-server](#)
+				
+[6. Nâng cao với syslog](#)
+				
+[7. Lời kết](#)
 
+=====================
 
 ##### 1. Giới thiệu
 
