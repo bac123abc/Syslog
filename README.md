@@ -22,8 +22,10 @@ Mục lục:
 [5. Log-server](#)
 				
 [6. Nâng cao với syslog](#)
+
+[7. Lab mô hình log](#)
 				
-[7. Lời kết](#)
+[8. Lời kết](#)
 
 =====================
 
@@ -284,7 +286,48 @@ Qua tìm hiểu chúng tôi nhận thức được kiến thức nâng cao hơn 
 -...
 
 Nhưng trong phạm vi bài viết này, chúng tôi chỉ giới hạn ở mức độ sơ khai nhất, các vấn đề nêu trên chúng tôi sẽ sớm làm rõ và đưa ra trong loạt các bài viết sau này về syslog.
-##### 7. Lời kết
+
+##### 7. Lab với mô hình log vơi dịch vụ WEB
+
+Mô hình lab
+
+<img class="image__pic js-image-pic" src="http://i.imgur.com/ailqyX1.png" alt="" id="screenshot-image">
+
+###### a. Mô hình Ubuntu sang Ubuntu
+
+Lúc này máy Ubuntu chạy dịch vụ http và là máy client gửi bản log về cho máy Ubuntun là log server
+
+- Bước 1: Chỉnh sửa trong file cấu hình `/etc/rsyslog.conf` của máy chủ Log-server để nó có thể nhận các bản tin log từ các client gửi về.
+
+<img class="image__pic js-image-pic" src="http://i.imgur.com/667Q082.png" alt="" id="screenshot-image">
+
+Nếu bạn muốn trên máy chủ log tạo thành các thư mục lưu riêng log đối với từng máy Client gửi về thêm dòng này vào file cấu hình
+
+<img class="image__pic js-image-pic" src="http://i.imgur.com/jNpIFEw.png" alt="" id="screenshot-image">
+
+- Bước 2: Thêm  dòng này trong file cấu hình `/etc/rsyslog.conf` của máy Client 
+```
+*.*			@ [Địa chỉ IP của máy log-server]
+```
+
+- Bước 3: 
+
+Thêm dòng sau đây vào file cấu hình của apache trong máy client: `/etc/apache2/apache2.conf`
+```
+ErrorLog syslog:local1
+```
+Thêm dòng sau vào file `/etc/apache2/sites-enabled/000-default.conf`
+```
+CustomLog "| /usr/bin/logger -thttpacces -plocal1.info"
+```
+*Note: Dòng lệnh trên có ý nghĩa chuyển tất cả các Log của phần CustomLog vào đầu vào lệnh logger và lệnh logger cho ra đầu ra của log với nguồn là httpacces và với selector là local1.info. Bạn có thể tìm hiểu thêm lệnh logger tại [đây](http://linux.about.com/library/cmd/blcmdl1_logger.htm)*
+
+Lúc này trên máy chủ log nó sẽ tạo ra một thư mục có tên của máy client và trong đó sẽ chứa tất cả các log của máy Client đó.
+
+<img class="image__pic js-image-pic" src="http://i.imgur.com/EXhzms9.png" alt="" id="screenshot-image">
+
+
+##### 8. Lời kết
 
 Bài viết trên đây của chúng tôi giới thiệu về syslog và những thứ cần thiết nhất khi tìm hiểu về syslog.Nó cũng là kiến thức mà khi tìm hiểu chúng tôi nhận được. Nắm được syslog là điều thực sự cần thiết đối với một người quản trị hệ thống. Nó là công cụ đắc lực nhất cho việc quan trị và sửa chữa hệ thống.
 
