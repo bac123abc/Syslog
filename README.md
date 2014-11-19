@@ -23,7 +23,7 @@ Mục lục:
 				
 [6. Nâng cao với syslog](#)
 
-[7. Lab mô hình log](#)
+[7. Lab mô hình log với dịch vụ WEB](#)
 				
 [8. Lời kết](#)
 
@@ -287,7 +287,7 @@ Qua tìm hiểu chúng tôi nhận thức được kiến thức nâng cao hơn 
 
 Nhưng trong phạm vi bài viết này, chúng tôi chỉ giới hạn ở mức độ sơ khai nhất, các vấn đề nêu trên chúng tôi sẽ sớm làm rõ và đưa ra trong loạt các bài viết sau này về syslog.
 
-##### 7. Lab với mô hình log vơi dịch vụ WEB
+##### 7. Lab mô hình log với dịch vụ WEB
 
 Mô hình lab
 
