@@ -29,7 +29,7 @@ Mục lục:
 
 =====================
 
-##### 1. Giới thiệu
+#### 1. Giới thiệu
 
 Syslog là một gói phần mềm trong hệ thống Linux nhằm để ghi bản tin log của hệ thống trong quá trình hoạt động như của kernel, deamon, cron, auth, hoặc các ứng dụng chạy trên hệ thống như http, dns, dhcp, ntp,..
 
@@ -43,7 +43,7 @@ Theo măc định các bản tin log của hệ thống được syslog lưu và
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/dFZUtfY.png" alt="" id="screenshot-image">
 
-##### 2. Các câu lệnh hỗ trợ xem syslog
+#### 2. Các câu lệnh hỗ trợ xem syslog
 
 Đối với các file ghi log các bạn có thể dùng một số lệnh sau để giúp cho việc xem log
 
@@ -54,7 +54,7 @@ Theo măc định các bản tin log của hệ thống được syslog lưu và
 |head | head [file] | In ra 10 dòng đầu tiên của nôi dụng file |
 |tail -f | tail -f [file] | Dùng để xem ngay lâp tức khi có log đến | Đây là câu lệnh dùng phổ biến nhất nó giúp ta có thể xem ngay lập tức log mới đến, và nó sẽ in ra 10 dong cuối cùng trong nội dung file đó |
 
-##### 3. Chi tiết file cấu hình của syslog
+#### 3. Chi tiết file cấu hình của syslog
  
  File cấu hình của syslog:file cấu hình của syslog đôi với centos nằm trong thư mục `/etc/rsyslog.conf`
  Đối với các phiên bản ubuntu thì mặc định nằm trong : `/etc/rsyslog.d/50-defaul.conf`
@@ -154,7 +154,7 @@ Cơ bản trong file cấu hình của syslog cho chúng ta thấy được nơi
 
 Trong syslog nhưng rule như hình trên được chia là 2 trường:
 
-#### Trường 1: Trường Seletor ( như ô vuông 1 trong hình )
+##### Trường 1: Trường Seletor ( như ô vuông 1 trong hình )
 - Trường Seletor  : Chỉ ra nguồn tạo ra log và mức cảnh bảo của log đó.
 - Trong trường seletor có 2 thành phần và được tách nhau bằng dấu "."
 
@@ -185,7 +185,7 @@ Nguồn tao ra log có thể liệt kê một số nguồn sau
 |info | Thông tin của hệ thống |
 |debug | Quá trình kiểm tra hệ thống |
 
-#### Trường 2: Trường action ( như ô vuông thứ 2 trong hình )
+##### Trường 2: Trường action ( như ô vuông thứ 2 trong hình )
 - Trường action:là trường để chỉ ra nơi lưu log của tiến trình đó.Có 2 loại là lưu tại file trong localhost hoặc gửi đến IP của Máy chủ Log ( chi tiết phần máy chủ log )
 
 **Note:**
@@ -205,7 +205,7 @@ Nếu bạn muốn log lại tiến trình của mail ngoại trừ mức info b
 ```
 Lúc này tất các log từ info của tiến trình hệ thống sẽ được lưu vào trong thư mục message nhưng đối với các log của mail và auth sẽ không lưu vào trong message. Đó là ý nghĩa của dòng auth.none;mail.none
 
-##### 4. Rotating Log
+#### 4. Rotating Log
 Phần lớn các distro sẽ cài đặt một cấu hình syslog mặc định cho bạn, bao gồm logging to messages và các log files 
 khác trong /var/log. Để ngăn cản những files này ngày càng trở nên cồng kềnh và khó kiểm soát, một hệ thống quay 
 vòng log file (a log file rotation scheme) nên được cài đặt. Hệ thống cron đưa ra các lệnh để thiết lập những 
@@ -258,7 +258,7 @@ Trong ví dụ này, bạn sẽ thấy:
 - Thông tin về sự quay vòng log của các gói RPM nằm trong /etc/logrotate.d
 - rotation được thiết lập cho 2 files: /var/log/wtmp và /var/log/btmp
 
-##### 5. Log-server
+#### 5. Log-server
 
 Bài toán thực tế đặt ra khi áp dụng vào trong một hệ thống là phải cần một con Log-server đối với hê thống để lưu log của tất cả các client gửi về. Vì vậy trong syslog có hỗ trợ chức năng đó:
 Mặc định trong syslog sử dụng port 514 để gửi và nhận thông tin log
@@ -279,7 +279,7 @@ Trong file cấu hình syslog bạn làm như sau:
 *@IPserver:514* : Đối với giao thức UDP.
 *@@IPserver:514* : Đối với giao thức TCP
 
-##### 6. Nâng cao với syslog
+#### 6. Nâng cao với syslog
 
 Qua tìm hiểu chúng tôi nhận thức được kiến thức nâng cao hơn về phần syslog này như:
 - Chỉnh sửa bản tin log đầu ra để đáp ứng yêu cầu công việc
@@ -292,7 +292,7 @@ Qua tìm hiểu chúng tôi nhận thức được kiến thức nâng cao hơn 
 
 Nhưng trong phạm vi bài viết này, chúng tôi chỉ giới hạn ở mức độ sơ khai nhất, các vấn đề nêu trên chúng tôi sẽ sớm làm rõ và đưa ra trong loạt các bài viết sau này về syslog.
 
-##### 7. Lab mô hình log với dịch vụ WEB
+#### 7. Lab mô hình log với dịch vụ WEB
 
 Mô hình lab
 
@@ -332,7 +332,7 @@ Lúc này trên máy chủ log nó sẽ tạo ra một thư mục có tên của
 <img class="image__pic js-image-pic" src="http://i.imgur.com/EXhzms9.png" alt="" id="screenshot-image">
 
 
-##### 8. Lời kết
+#### 8. Lời kết
 
 Bài viết trên đây của chúng tôi giới thiệu về syslog và những thứ cần thiết nhất khi tìm hiểu về syslog.Nó cũng là kiến thức mà khi tìm hiểu chúng tôi nhận được. Nắm được syslog là điều thực sự cần thiết đối với một người quản trị hệ thống. Nó là công cụ đắc lực nhất cho việc quan trị và sửa chữa hệ thống.
 
