@@ -11,24 +11,24 @@ Xin chào các bạn. Bài viết này chúng tôi xin giới thiệu về syslo
 
 Mục lục:
 
-[1. Giới thiệu](#)
+[1. Giới thiệu](#gioithieu)
 	
-[2. Các câu lệnh hỗ trợ xem syslog](#)
+[2. Các câu lệnh hỗ trợ xem syslog](#lenh)
 				
-[3. Chi tiết file cấu hình của syslog](#)
+[3. Chi tiết file cấu hình của syslog](#chitiet)
 				
-[4. Rotating Log](#)
+[4. Rotating Log](#rotating)
 				
-[5. Log-server](#)
+[5. Log-server](#log)
 				
-[6. Nâng cao với syslog](#)
+[6. Nâng cao với syslog](#nangcao)
 
-[7. Lab mô hình log với dịch vụ WEB](#)
+[7. Lab mô hình log với dịch vụ WEB](#web)
 				
-[8. Lời kết](#)
+[8. Lời kết](#lk)
 
 =====================
-
+<a name="gioithieu"></a>
 #### 1. Giới thiệu
 
 Syslog là một gói phần mềm trong hệ thống Linux nhằm để ghi bản tin log của hệ thống trong quá trình hoạt động như của kernel, deamon, cron, auth, hoặc các ứng dụng chạy trên hệ thống như http, dns, dhcp, ntp,..
@@ -43,6 +43,7 @@ Theo măc định các bản tin log của hệ thống được syslog lưu và
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/dFZUtfY.png" alt="" id="screenshot-image">
 
+<a name="lenh"></a>
 #### 2. Các câu lệnh hỗ trợ xem syslog
 
 Đối với các file ghi log các bạn có thể dùng một số lệnh sau để giúp cho việc xem log
@@ -54,6 +55,7 @@ Theo măc định các bản tin log của hệ thống được syslog lưu và
 |head | head [file] | In ra 10 dòng đầu tiên của nôi dụng file |
 |tail -f | tail -f [file] | Dùng để xem ngay lâp tức khi có log đến | Đây là câu lệnh dùng phổ biến nhất nó giúp ta có thể xem ngay lập tức log mới đến, và nó sẽ in ra 10 dong cuối cùng trong nội dung file đó |
 
+<a name="chitiet"></a>
 #### 3. Chi tiết file cấu hình của syslog
  
  File cấu hình của syslog:file cấu hình của syslog đôi với centos nằm trong thư mục `/etc/rsyslog.conf`
@@ -204,7 +206,7 @@ Nếu bạn muốn log lại tiến trình của mail ngoại trừ mức info b
 *.info;auth.none;mail.none        /var/log/message
 ```
 Lúc này tất các log từ info của tiến trình hệ thống sẽ được lưu vào trong thư mục message nhưng đối với các log của mail và auth sẽ không lưu vào trong message. Đó là ý nghĩa của dòng auth.none;mail.none
-
+<a name="rotating"></a>
 #### 4. Rotating Log
 Phần lớn các distro sẽ cài đặt một cấu hình syslog mặc định cho bạn, bao gồm logging to messages và các log files 
 khác trong /var/log. Để ngăn cản những files này ngày càng trở nên cồng kềnh và khó kiểm soát, một hệ thống quay 
@@ -258,6 +260,7 @@ Trong ví dụ này, bạn sẽ thấy:
 - Thông tin về sự quay vòng log của các gói RPM nằm trong /etc/logrotate.d
 - rotation được thiết lập cho 2 files: /var/log/wtmp và /var/log/btmp
 
+<a name="log"></a>
 #### 5. Log-server
 
 Bài toán thực tế đặt ra khi áp dụng vào trong một hệ thống là phải cần một con Log-server đối với hê thống để lưu log của tất cả các client gửi về. Vì vậy trong syslog có hỗ trợ chức năng đó:
@@ -288,7 +291,7 @@ Trong file cấu hình syslog bạn làm như sau:
 iptables -A INPUT -p udp --dport 514 -j ACCEPT
 iptables -A OUTPUT -p udp --sport 514 -j ACCEPT
 ```
-
+<a name="nangcao"></a>
 #### 6. Nâng cao với syslog
 
 Qua tìm hiểu chúng tôi nhận thức được kiến thức nâng cao hơn về phần syslog này như:
@@ -302,6 +305,7 @@ Qua tìm hiểu chúng tôi nhận thức được kiến thức nâng cao hơn 
 
 Nhưng trong phạm vi bài viết này, chúng tôi chỉ giới hạn ở mức độ sơ khai nhất, các vấn đề nêu trên chúng tôi sẽ sớm làm rõ và đưa ra trong loạt các bài viết sau này về syslog.
 
+<a name="web"></a>
 #### 7. Lab mô hình log với dịch vụ WEB
 
 Mô hình lab
@@ -347,7 +351,7 @@ Lúc này trên máy chủ log nó sẽ tạo ra một thư mục có tên của
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/EXhzms9.png" alt="" id="screenshot-image">
 
-
+<a name="lk"></a>
 #### 8. Lời kết
 
 Bài viết trên đây của chúng tôi giới thiệu về syslog và những thứ cần thiết nhất khi tìm hiểu về syslog.Nó cũng là kiến thức mà khi tìm hiểu chúng tôi nhận được. Nắm được syslog là điều thực sự cần thiết đối với một người quản trị hệ thống. Nó là công cụ đắc lực nhất cho việc quan trị và sửa chữa hệ thống.
