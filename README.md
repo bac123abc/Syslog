@@ -275,9 +275,19 @@ Trong file cấu hình syslog bạn làm như sau:
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/CmURwV0.png" alt="" id="screenshot-image">
 
-*note: @ IP máy chủ log* khi đó các log của mail cũng sẽ gửi đến ip của máy chủ log với port 514 và dùng giao thức UDP. Các bạn nhớ máy chủ log mở port 514 với kiểu truyền vận UPD hay TCP thì trên client cũng phải truyền đúng với giao thức như trên server.
-*@IPserver:514* : Đối với giao thức UDP.
+*Chú ý 1: @ IP máy chủ log* khi đó các log của mail cũng sẽ gửi đến ip của máy chủ log với port 514 và dùng giao thức UDP. Các bạn nhớ máy chủ log mở port 514 với kiểu truyền vận UPD hay TCP thì trên client cũng phải truyền đúng với giao thức như trên server.
+
+*@IPserver:514* : Đối với giao thức UDP
+
 *@@IPserver:514* : Đối với giao thức TCP
+
+*Chú ý 2:* Ở đây khi cấu hình máy chủ syslog chúng tôi LAB với trường hợp tắt chắc năng firewall của máy chủ và máy client. Đề cập đến vấn đề firewall, bạn hay chắc chắn rẳng đã ở cổng đầu vào và ra với port 514 UDP hoăc TCP trên máy chủ và máy client. Khi bật chức năng iptables lên bạn phải nắm rõ được nguyên lý và cơ chế hoạt động của iptables để có thể thêm các rule đối với máy chủ và máy client. tìm hiểu iptables bạn có thể tham khảo tại [đây](https://github.com/hocchudong/IptablestrongLinux)
+
+Đối với trên máy chủ và client bạn có thể dụng lệnh sau để mở port 514 UDP (TCP).
+```
+iptables -A INPUT -p udp --dport 514 -j ACCEPT
+iptables -A OUTPUT -p udp --sport 514 -j ACCEPT
+```
 
 #### 6. Nâng cao với syslog
 
@@ -309,6 +319,12 @@ Lúc này máy Ubuntu chạy dịch vụ http và là máy client gửi bản lo
 Nếu bạn muốn trên máy chủ log tạo thành các thư mục lưu riêng log đối với từng máy Client gửi về thêm dòng này vào file cấu hình
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/jNpIFEw.png" alt="" id="screenshot-image">
+
+Và chuyển chủ sở hưu tập tin /log/var cho syslog để nó có thể tạo các file và thư mục trong /var/log
+```
+chown syslog.syslog /var/log
+```
+
 
 - Bước 2: Thêm  dòng này trong file cấu hình `/etc/rsyslog.conf` của máy Client 
 ```
