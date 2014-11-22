@@ -153,8 +153,10 @@ Cơ bản trong file cấu hình của syslog cho chúng ta thấy được nơi
 <img class="image__pic js-image-pic" src="http://i.imgur.com/CEgKLZQ.png" alt="" id="screenshot-image">
 
 Trong syslog nhưng rule như hình trên được chia là 2 trường:
-- Trường Seletor ( như ô vuông 1 trong hình ) : Chỉ ra nguồn tạo ra log và mức cảnh bảo của log đó. Trong trường seletor có 2 thành phần và được tách nhau bằng dấu "."
-  - Nguồn tao ra log có thể liệt kê một số nguồn sau
+- Trường Seletor ( như ô vuông 1 trong hình ) : Chỉ ra nguồn tạo ra log và mức cảnh bảo của log đó.
+-  Trong trường seletor có 2 thành phần và được tách nhau bằng dấu "."
+
+Nguồn tao ra log có thể liệt kê một số nguồn sau
 
 |Nguồn tạo log | Ý nghĩa |
 |--------------|---------|
