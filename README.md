@@ -24,6 +24,10 @@ Mục lục:
 [6. Nâng cao với syslog](#nangcao)
 
 [7. Lab mô hình log với dịch vụ WEB](#web)
+	
+- [a. Mô hình từ Ubuntu sang Ubuntu](#ubuntu)
+	
+- [b. Mô hình từ Centos sang Ubuntu](#centos)
 				
 [8. Lời kết](#lk)
 
@@ -284,6 +288,7 @@ Trong file cấu hình syslog bạn làm như sau:
 
 *@@IPserver:514* : Đối với giao thức TCP
 
+<a name="iptables"></a>
 *Chú ý 2:* Ở đây khi cấu hình máy chủ syslog chúng tôi LAB với trường hợp tắt chắc năng firewall của máy chủ và máy client. Đề cập đến vấn đề firewall, bạn hay chắc chắn rẳng đã ở cổng đầu vào và ra với port 514 UDP hoăc TCP trên máy chủ và máy client. Khi bật chức năng iptables lên bạn phải nắm rõ được nguyên lý và cơ chế hoạt động của iptables để có thể thêm các rule đối với máy chủ và máy client. tìm hiểu iptables bạn có thể tham khảo tại [đây](https://github.com/hocchudong/IptablestrongLinux)
 
 Đối với trên máy chủ và client bạn có thể dụng lệnh sau để mở port 514 UDP (TCP).
@@ -312,6 +317,7 @@ Mô hình lab
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/ailqyX1.png" alt="" id="screenshot-image">
 
+<a nanme="ubuntu"></a>
 ###### a. Mô hình Ubuntu sang Ubuntu
 
 Lúc này máy Ubuntu chạy dịch vụ http và là máy client gửi bản log về cho máy Ubuntun là log server
@@ -350,6 +356,32 @@ CustomLog "| /usr/bin/logger -thttpacces -plocal1.info"
 Lúc này trên máy chủ log nó sẽ tạo ra một thư mục có tên của máy client và trong đó sẽ chứa tất cả các log của máy Client đó.
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/EXhzms9.png" alt="" id="screenshot-image">
+
+<a name="centos"></a>
+###### b. Mô hình Centos sang Ubuntu
+
+Lúc này máy Centos chạy dịch vụ http và là máy client gửi bản log về cho máy Ubuntun là log server
+
+Phần cấu hình trên máy log server hoàn toàn như cấu hình đối với mô hình Ubuntu sang Ubuntu
+
+Phần cấu hình trên máy Client là Centos
+
+- Bước 1: Chỉnh sửa file `/etc/ryslog.conf`:thêm dòng sau đây vào file cấu hình syslog
+```
+*.* 		@ <địa chỉ ip của log server>
+```
+
+- Bước 2: Chỉnh sửa file cấu hình của http `/etc/httpd/conf/httpd.conf`
+
+Ban thêm 2 dòng sau đây vào file cấu hình
+```
+ErrorLog syslog:local2
+CustomLog "| /usr/bin/logger -thttp_acces -plocal2.info" combined
+```
+*Chú ý 1:* Bạn hay chắc chắn rằng trong file cấu hình của httpd chỉ có duy nhất dòng ErrorLog bạn vừa nhâp, những ErrorLog khác bạn hãy chuyển thành comment.
+
+*Chú ý 2:* Chúng tôi đang lab với trường hợp tắt iptables. CÒn nếu bạn muốn lab trong trường hợp bạn bật iptables lên, hãy chắc chắn bạn hiểu về iptables nhé. mở port iptables bạn có thể xem lại tại [mục chú ý của phần 5](#iptables)
+
 
 <a name="lk"></a>
 #### 8. Lời kết
