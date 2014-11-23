@@ -317,7 +317,7 @@ Mô hình lab
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/ailqyX1.png" alt="" id="screenshot-image">
 
-<a nanme="ubuntu"></a>
+<a name="ubuntu"></a>
 ###### a. Mô hình Ubuntu sang Ubuntu
 
 Lúc này máy Ubuntu chạy dịch vụ http và là máy client gửi bản log về cho máy Ubuntun là log server
