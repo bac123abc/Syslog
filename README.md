@@ -96,6 +96,8 @@ $ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
 
 # Include all config files in /etc/rsyslog.d/
 $IncludeConfig /etc/rsyslog.d/*.conf
+
+##@ THEM TU DAY VAO####
 #### RULES ####
 # Log all kernel messages to the console.
 # Logging much else clutters up the screen.
