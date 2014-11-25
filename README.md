@@ -63,9 +63,11 @@ Theo măc định các bản tin log của hệ thống được syslog lưu và
 #### 3. Chi tiết file cấu hình của syslog
  
  ##### File cấu hình của syslog
+ 
  - Trong CENTOS, file cấu hình là `/etc/rsyslog.conf` . File này chứa cả các rule về log
  - Trong UBUUNTU file cấu hình là `/etc/rsyslog.conf` nhưng các rule được định nghĩa riêng trong `/etc/rsyslog.d/50-defaul.conf` . File rule này được khai báo include từ file cấu hình `/etc/rsyslog.conf`
- - 
+
+Dưới đây là file cấu hình và khai báo rule trong CENTOS
  ```
  # rsyslog v5 configuration file
 
