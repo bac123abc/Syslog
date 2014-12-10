@@ -224,7 +224,7 @@ vòng log file (a log file rotation scheme) nên được cài đặt. Hệ th�
 log files mới, những file cũ được đổi tên bằng cách thay một con số ở hậu tố. Với loại quay vòng này, /var/log/messages 
 của ngày hôm qua sẽ trở thành messages.1 của ngày hôm nay và một messages mới được tạo. 
 Sự luân phiên này được cấu hình cho một số lượng lớn các file, và các log files cũ nhất sẽ được
-xoá khi sự luân phiên bắt đầu chạy. Ví dụ trong /var/log có các messages sau: messages, messages.1, messages-20071111, messages-20071118, ... 
+xoá khi sự luân phiên bắt đầu chạy. Ví dụ trong /var/log có các messages sau: messages, messages.1, messages-20141111, messages-20141118, ... 
 
 Tiện ích thi hành rotation là logrotate. Lệnh này được cấu hình sử dụng cho một hoặc nhiều files - được xác định bởi các tham số đi cùng. File cấu hình mặc định là /etc/logrotate.conf. 
 ```
@@ -266,7 +266,7 @@ include /etc/logrotate.d
 Trong ví dụ này, bạn sẽ thấy: 
 - Hệ thống sẽ quay vòng log files hàng tuần
 - Lưu lại những thông tin logs đáng giá trong 4 tuần
-- Sử dụng định dạng Ngày tháng thêm vào để làm hậu tố của log files (20071111, 20071118, ...)
+- Sử dụng định dạng Ngày tháng thêm vào để làm hậu tố của log files (20141111, 20141118, ...)
 - Thông tin về sự quay vòng log của các gói RPM nằm trong /etc/logrotate.d
 - rotation được thiết lập cho 2 files: /var/log/wtmp và /var/log/btmp
 
