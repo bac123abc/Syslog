@@ -401,7 +401,5 @@ Tài liệu tham khảo:
 
 [Link 1](https://www.digitalocean.com/community/tutorials/how-to-view-and-configure-linux-logs-on-ubuntu-and-centos)
 
-[Link 2](http://www.thegeekstuff.com/2011/08/linux-var-log-files/)
-
-[Link 3](http://www.golinuxhub.com/2014/01/syslog-tutorial.html)
+[Link 2](http://xmodulo.com/configure-syslog-server-linux.html)
 
