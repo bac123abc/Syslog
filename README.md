@@ -336,6 +336,8 @@ Nếu bạn muốn trên máy chủ log tạo thành các thư mục lưu riêng
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/jNpIFEw.png" alt="" id="screenshot-image">
 
+%HOSTNAME% : thông số này sẽ quy ước tạo ra trên server 1 thư mục trùng với tên hostname của client. Nếu bạn muốn tên thư mục là IP của server thì thay %HOSTNAME% = %fromhost-ip%.
+
 Và chuyển chủ sở hưu tập tin /log/var cho syslog để nó có thể tạo các file và thư mục trong /var/log
 ```
 chown syslog.syslog /var/log
