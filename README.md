@@ -65,7 +65,7 @@ Theo măc định các bản tin log của hệ thống được syslog lưu và
 ##### File cấu hình của syslog
  
  - Trong CENTOS, file cấu hình là `/etc/rsyslog.conf` . File này chứa cả các rule về log
- - Trong UBUUNTU file cấu hình là `/etc/rsyslog.conf` nhưng các rule được định nghĩa riêng trong `/etc/rsyslog.d/50-defaul.conf` . File rule này được khai báo include từ file cấu hình `/etc/rsyslog.conf`
+ - Trong UBUNTU file cấu hình là `/etc/rsyslog.conf` nhưng các rule được định nghĩa riêng trong `/etc/rsyslog.d/50-defaul.conf` . File rule này được khai báo include từ file cấu hình `/etc/rsyslog.conf`
 
 ##### Dưới đây là file cấu hình và khai báo rule trong CENTOS
  ```
@@ -210,7 +210,7 @@ Khi đó lúc này bản tin log sẽ mail lại với mức cảnh báo từ in
 ```
 mail.* 
 ```
-Lúc này kí tự * đại diên cho các mực đăng ý. Lúc này nó sẽ lưu hêt các mức của mail vào trong thư mục. tượng tự khi t đặt *. thì lúc này nó sẽ log lại tất cả các tiến trình của hệ thống vào một file
+Lúc này kí tự * đại diên cho các mức đăng ý. Lúc này nó sẽ lưu hết các mức của mail vào trong thư mục. Tượng tự khi đặt *. thì lúc này nó sẽ log lại tất cả các tiến trình của hệ thống vào một file
 Nếu bạn muốn log lại tiến trình của mail ngoại trừ mức info bạn có thể dùng kí tự ! `mail.!info`
 ```
 *.info;auth.none;mail.none        /var/log/message
@@ -273,7 +273,7 @@ Trong ví dụ này, bạn sẽ thấy:
 <a name="log"></a>
 #### 5. Log-server
 
-Bài toán thực tế đặt ra khi áp dụng vào trong một hệ thống là phải cần một con Log-server đối với hê thống để lưu log của tất cả các client gửi về. Vì vậy trong syslog có hỗ trợ chức năng đó:
+Bài toán thực tế đặt ra khi áp dụng vào trong một hệ thống là phải cần một con Log-server đối với hệ thống để lưu log của tất cả các client gửi về. Vì vậy trong syslog có hỗ trợ chức năng đó:
 Mặc định trong syslog sử dụng port 514 để gửi và nhận thông tin log
 - Đối với Log-server
 Để chuyển một máy thành máy chủ log thì đâu tiền bạn phải mở cổng 514 và cấu hình trong file `rsyslog.conf` như sau:
@@ -295,7 +295,7 @@ Trong file cấu hình syslog bạn làm như sau:
 *@@IPserver:514* : Đối với giao thức TCP
 
 <a name="iptables"></a>
-*Chú ý 2:* Ở đây khi cấu hình máy chủ syslog chúng tôi LAB với trường hợp tắt chắc năng firewall của máy chủ và máy client. Đề cập đến vấn đề firewall, bạn hay chắc chắn rẳng đã ở cổng đầu vào và ra với port 514 UDP hoăc TCP trên máy chủ và máy client. Khi bật chức năng iptables lên bạn phải nắm rõ được nguyên lý và cơ chế hoạt động của iptables để có thể thêm các rule đối với máy chủ và máy client. tìm hiểu iptables bạn có thể tham khảo tại [đây](https://github.com/hocchudong/IptablestrongLinux)
+*Chú ý 2:* Ở đây khi cấu hình máy chủ syslog chúng tôi LAB với trường hợp tắt chắc năng firewall của máy chủ và máy client. Đề cập đến vấn đề firewall, bạn hay chắc chắn rẳng đã ở cổng đầu vào và ra với port 514 UDP hoăc TCP trên máy chủ và máy client. Khi bật chức năng iptables lên bạn phải nắm rõ được nguyên lý và cơ chế hoạt động của iptables để có thể thêm các rule đối với máy chủ và máy client. Tìm hiểu iptables bạn có thể tham khảo tại [đây](https://github.com/hocchudong/IptablestrongLinux)
 
 Đối với trên máy chủ và client bạn có thể dụng lệnh sau để mở port 514 UDP (TCP).
 ```
